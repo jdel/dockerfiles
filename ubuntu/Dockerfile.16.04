@@ -1,0 +1,17 @@
+FROM ubuntu:16.04
+
+LABEL maintainer="Julien DEL PICCOLO <julien@del-piccolo.com>"
+
+RUN apt-get update -y \
+ && apt-get install ca-certificates wget curl --no-install-recommends -y \
+ && apt-get upgrade -y \
+ && adduser --disabled-password user \
+ && apt-get autoremove -y \
+ && apt-get clean -y \
+ && rm -rf /var/lib/apt/lists/*
+
+USER user
+
+WORKDIR /home/user
+
+HEALTHCHECK NONE
