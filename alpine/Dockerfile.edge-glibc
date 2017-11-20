@@ -1,4 +1,4 @@
-FROM jdel/alpine:3.6
+FROM jdel/alpine:edge
  
 USER root 
 
